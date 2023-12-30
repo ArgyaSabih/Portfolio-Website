@@ -54,6 +54,17 @@
     justify-content: center;
   }
 
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    position: fixed;
+    top: 0;
+    background-color: #161a30;
+    width: 100%;
+    z-index: 999;
+  }
+
   .nav-active {
     transform: translateX(0);
   }
@@ -84,7 +95,8 @@
   }
 
   .hero-right img {
-    width: 70%;
+    width: 80%;
+    height: 350px;
   }
 
   .hero-left {
@@ -123,6 +135,18 @@
 
 /* Mobile Size */
 @media screen and (max-width: 640px) {
+  /* nav */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    position: fixed;
+    top: 0;
+    background-color: #161a30;
+    width: 100%;
+    z-index: 999;
+  }
+
   /* Titles */
   .section-title {
     font-size: 1.3rem;

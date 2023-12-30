@@ -178,13 +178,15 @@ nav ul li a:hover {
   margin: 7px;
   transition: all 0.3s;
   z-index: 99;
+  justify-content: right;
 }
 
 .burger {
+  background-color: #161a30;
   display: none;
   z-index: 99;
   position: fixed;
-  top: 33px;
+  top: 13px;
   right: 35px;
 }
 
@@ -218,6 +220,7 @@ nav ul {
 .hero-right {
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .hero-icons {
@@ -293,14 +296,7 @@ nav ul {
 .portfolio-tags div {
   font-size: 0.9rem;
   border: 1px solid var(--borderColor);
-  padding: 0.4rem 1rem;
-  color: var(--secondaryTextColor);
-}
-
-.portfolio-tags div {
-  font-size: 0.9rem;
-  border: 1px solid var(--borderColor);
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 0.5rem;
   color: var(--secondaryTextColor);
 }
 
