@@ -194,9 +194,9 @@ nav ul {
 
 /* Hero Section */
 #hero {
-  height: 720px;
+  height: 570px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
   align-items: center;
 }
 
@@ -210,14 +210,27 @@ nav ul {
   color: var(--primaryIconColor) !important;
 }
 
-.hero-right img {
-  width: 90%;
-}
-
 .hero-right {
+  margin: 0 0 2rem 1rem;
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  align-items: center;
+  width: 360px;
+  height: 360px;
+  background-color: #161a30;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  outline: 10px solid #5d51e8;
+  box-shadow: 0 0 15px 10px #5d51e8;
+}
+
+.hero-right img {
+  position: relative;
+  max-width: 300px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: showImage 1.5s ease forwards;
+  animation-delay: 2.2s;
 }
 
 .hero-icons {
@@ -352,7 +365,7 @@ nav ul {
 
 .skills-right ul {
   line-height: 2rem;
-  padding: 0 1rem;
+  padding-left: 1rem;
 }
 
 /* Contact Section */
@@ -570,10 +583,10 @@ nav ul li a::before {
 .hero-right::before {
   content: " ";
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  top: -50px;
+  right: -50px;
+  width: 150%;
+  height: 150%;
   background-color: #161a30;
   animation: showRight 1s ease forwards;
   animation-delay: 2.2s;
@@ -583,5 +596,11 @@ nav ul li a::before {
 @keyframes showRight {
   100% {
     width: 0;
+  }
+}
+
+@keyframes showImage {
+  100% {
+    opacity: 1;
   }
 }
