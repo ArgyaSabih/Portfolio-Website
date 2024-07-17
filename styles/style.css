@@ -592,6 +592,22 @@ nav ul li a::before {
   animation-delay: 2.2s;
 }
 
+.nav .burger {
+  position: relative;
+}
+
+.nav .burger::before {
+  content: " ";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 220%;
+  height: 220%;
+  background-color: #161a30;
+  animation: showRight 1.5s ease forwards;
+  animation-delay: 2.2s;
+}
+
 /* Keyframes Animation */
 @keyframes showRight {
   100% {
