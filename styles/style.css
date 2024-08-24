@@ -187,8 +187,9 @@ nav ul li a:hover {
   display: none;
   z-index: 99;
   position: fixed;
-  top: 13px;
+  top: 8px;
   right: 35px;
+  height: 80%;
 }
 
 nav ul {
@@ -229,8 +230,8 @@ nav ul {
 
 .hero-right img {
   position: relative;
-  max-width: 300px;
-  border-radius: 50%;
+  max-width: 360px;
+  border-radius: 100%;
   opacity: 0;
   animation: showImage 1.5s ease forwards;
   animation-delay: 2.2s;
@@ -602,7 +603,7 @@ nav ul li a::before {
 .nav .burger::before {
   content: " ";
   position: absolute;
-  top: -50px;
+  top: -30px;
   right: -50px;
   width: 220%;
   height: 220%;
