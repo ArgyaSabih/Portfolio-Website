@@ -58,6 +58,10 @@ a {
   text-decoration: none;
 }
 
+header {
+  height: 100vh;
+}
+
 /* End Preparation */
 
 .main-container {
@@ -80,7 +84,6 @@ a {
   cursor: pointer;
   transition: 0.3s ease-in-out;
   border-radius: 10px;
-  border: 1px solid var(--primaryIconColorHover);
   font-weight: 700;
 }
 
@@ -194,7 +197,7 @@ nav ul {
 
 /* Hero Section */
 #hero {
-  height: 570px;
+  height: 85vh;
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   align-items: center;

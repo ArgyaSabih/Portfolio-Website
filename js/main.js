@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+  AOS.init();
+});
+
 // Toggle & Responsive Navigation
 const navSlide = () => {
   const burger = document.querySelector(".burger");
