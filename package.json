@@ -4,7 +4,7 @@
   "description": "ArgyaSabih Portfolio Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "mkdir assets && mv node_modules assets/node_modules || echo 'folder assets already exist.'"
   },
   "keywords": [],
   "author": "",
