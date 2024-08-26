@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  AOS.init();
+  AOS.init({
+    once: true,
+    duration: 700
+  });
 });
 
 // Toggle & Responsive Navigation
