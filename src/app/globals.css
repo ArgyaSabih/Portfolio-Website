@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero Image Container */
+.hero-image-container {
+  outline: 5px solid #5d51e8;
+  box-shadow: 0 0 10px 5px #5d51e8;
+}
+
+@media (min-width: 1024px) {
+  .hero-image-container {
+    outline: 10px solid #5d51e8;
+    box-shadow: 0 0 15px 10px #5d51e8;
+  }
+}
+
+/* Text Reveal Animations */
+.reveal-right {
+  position: relative;
+}
+
+.reveal-right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #161a30;
+  z-index: 1;
+}
+
+.reveal-logo::before {
+  animation: showRight 1s ease forwards 0.3s;
+}
+
+.reveal-pretitle::before {
+  animation: showRight 1s ease forwards 1s;
+}
+
+.reveal-name::before {
+  animation: showRight 1.5s ease forwards 1.5s;
+}
+
+.reveal-desc::before {
+  animation: showRight 1.5s ease forwards 1.8s;
+}
+
+.reveal-icons::before {
+  animation: showRight 1.5s ease forwards 1.8s;
+}
+
+.reveal-nav::before {
+  animation: showRight 1.5s ease forwards 2s;
+}
+
+.reveal-image {
+  position: relative;
+}
+
+.reveal-image::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150%;
+  height: 150%;
+  background-color: #161a30;
+  z-index: 2;
+  animation: showRight 1s ease forwards 2.2s;
+}
+
+.reveal-burger {
+  position: relative;
+}
+
+.reveal-burger::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  right: -50px;
+  width: 220%;
+  height: 220%;
+  background-color: #161a30;
+  z-index: 100;
+  animation: showRight 1.5s ease forwards 2.2s;
+}
+
+.hero-image-fade {
+  opacity: 0;
+  animation: showImage 1.5s ease forwards 2.2s;
+}
+
+@keyframes showRight {
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes showImage {
+  100% {
+    opacity: 1;
+  }
+}
