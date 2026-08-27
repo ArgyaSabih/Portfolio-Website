@@ -10,12 +10,12 @@ const portfolios = [
       "Website created for a team from UGM's Community Service Program (KKN-PPM) that positions the Banda Neira community as the subject of change. Based on the integration of digital technology innovation, strengthening village governance, and natural resource conservation, Cerita Neira aims to strengthen local capabilities amidst the tide of cultural globalization."
   },
   {
-    title: "Creative Legal Website",
+    title: "Desa Rajawali Official Website",
     image: "/portfolios/portfolio-2.png",
-    link: "https://fe-legal-kreatif.vercel.app/",
-    tags: ["NodeJS", "ExpressJS", "MongoDB"],
+    link: "https://www.desarajawali.id/",
+    tags: ["NextJS", "TailwindCSS", "Sanity CMS", "Neon"],
     description:
-      "A Creative Legal Website is a website that can help managing business licenses. It has several business entity features such as creating a PT, creating a CV, establishing a foundation, etc. Provided with a tracker feature to check the progress of the document being created and article feature about business and legality."
+      "An official digital government and information platform developed for Desa Rajawali, Banda Neira, Central Maluku. The platform streamlines public administrative services, enhances institutional transparency, and serves as an information hub for local residents, showcasing village demographics, ongoing development programs, local news, and community potential."
   },
   {
     title: "Gelanggang Expo 2024",
