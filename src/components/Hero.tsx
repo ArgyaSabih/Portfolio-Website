@@ -16,7 +16,7 @@ export default function Hero() {
         <p className="reveal-right reveal-desc text-secondary-text text-xs md:text-sm lg:text-base leading-relaxed lg:leading-[1.9rem]">
           A student at DTETI FT UGM who dreamed to be working in programming industries.
           <br />
-          Passionate about Web Developer & Data Analyst.
+          Passionate about Web Developer, Data Analyst, Computer Vision & Artificial Intelligence.
         </p>
         <div className="reveal-right reveal-icons mt-4">
           <SocialIcons variant="hero" />

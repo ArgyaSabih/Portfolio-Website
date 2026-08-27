@@ -1,7 +1,8 @@
+// @ts-expect-error
+import "./globals.css";
 import type {Metadata} from "next";
 import {Kanit} from "next/font/google";
 import AOSInit from "@/components/AOSInit";
-import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -13,7 +14,8 @@ const kanit = Kanit({
 
 export const metadata: Metadata = {
   title: "Argya Sabih | Portfolio",
-  description: "Portfolio website of Argya Sabih - Web Developer & Data Analyst"
+  description:
+    "Portfolio website of Argya Sabih - Web Developer, Data Analyst, Computer Vision & Artificial Intelligence Enthusiast."
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
