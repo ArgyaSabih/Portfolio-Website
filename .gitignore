@@ -32,3 +32,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local files
+.vscode/
+.claude
+claude.md
+design.md
+graphify-out/

@@ -1,38 +1,95 @@
-import Image from "next/image";
 import SocialIcons from "./SocialIcons";
+import SplitText from "./SplitText";
+import HeroPortrait from "./HeroPortrait";
+import TextWheel from "./TextWheel";
+
+const interests = ["Web Developer", "Data Analyst", "Computer Vision", "Artificial Intelligence"];
 
 export default function Hero() {
   return (
-    <section id="hero" className="min-h-[85vh] grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] items-center">
-      {/* Hero Left - Text */}
-      <div className="text-center lg:text-left order-2 lg:order-1">
-        <h3 className="reveal-right reveal-pretitle flex items-center gap-3 justify-center lg:justify-start uppercase tracking-[0.5rem] text-secondary-text font-normal text-xs md:text-sm">
-          <span className="w-[30px] h-[1px] bg-line inline-block" />
-          My name is
-        </h3>
-        <h1 className="reveal-right reveal-name text-[1.9rem] md:text-[2.3rem] lg:text-[3rem] font-bold mt-2 mb-2 lg:mb-4 text-primary-text">
-          Argya <span className="text-accent">Sabih</span>
+    <section
+      id="hero"
+      className="relative mx-auto grid min-h-[calc(100dvh-var(--masthead))] max-w-shell grid-cols-1 content-center gap-y-12 px-[var(--gutter)] pb-14 pt-6 md:pb-20 lg:grid-cols-12 lg:items-center lg:gap-x-10"
+    >
+      <div
+        aria-hidden="true"
+        data-depth="-0.5"
+        data-scroll-depth="10"
+        className="grid-rule pointer-events-none absolute inset-y-0 left-[var(--gutter)] right-[var(--gutter)] -z-10 opacity-40 [--grid-step:5rem] md:[--grid-step:7rem]"
+        style={{
+          maskImage: "linear-gradient(to bottom, transparent, black 22%, black 70%, transparent)",
+          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 22%, black 70%, transparent)"
+        }}
+      />
+
+      <span
+        aria-hidden="true"
+        data-anim
+        data-anim-hero
+        className="pointer-events-none absolute left-1 top-1/2 hidden -translate-y-1/2 select-none font-mono text-[0.625rem] uppercase tracking-[0.42em] text-paper-faint xl:block"
+        style={{writingMode: "vertical-rl"}}
+      >
+        Argya Sabih — Portfolio
+      </span>
+
+      <div className="lg:col-span-7 lg:pr-6">
+        <h1 aria-label="My name is Argya Sabih" className="text-paper">
+          <span
+            aria-hidden="true"
+            data-anim
+            data-hero-lead
+            className="block font-display text-[1.375rem] leading-none tracking-[0.01em] text-paper-dim md:text-[1.625rem]"
+          >
+            <SplitText text="My name is" />
+            <span className="caret" />
+          </span>
+
+          <span
+            aria-hidden="true"
+            data-anim
+            data-hero-name
+            className="mt-4 block font-display text-hero md:mt-5"
+          >
+            <span data-line="1" className="block w-fit overflow-hidden pb-[0.16em] [margin-bottom:-0.16em]">
+              <SplitText text="Argya" />
+            </span>
+            <span
+              data-line="2"
+              className="block w-fit overflow-hidden pb-[0.16em] text-accent [margin-bottom:-0.16em]"
+            >
+              <SplitText text="Sabih" />
+            </span>
+          </span>
         </h1>
-        <p className="reveal-right reveal-desc text-secondary-text text-xs md:text-sm lg:text-base leading-relaxed lg:leading-[1.9rem]">
+
+        <div
+          data-anim
+          data-anim-hero
+          className="mt-6 flex items-center gap-4 font-display text-[1.5rem] tracking-[-0.01em] text-paper md:mt-7 md:text-[1.875rem]"
+        >
+          <span aria-hidden="true" className="block h-px w-10 shrink-0 bg-accent" />
+          <TextWheel words={interests} />
+        </div>
+
+        <div data-anim data-anim-hero-rule className="mt-6 h-px w-full max-w-md bg-rule md:mt-7" />
+
+        <p data-anim data-anim-hero className="mt-7 max-w-measure text-lede text-paper-dim md:mt-8">
           A student at DTETI FT UGM who dreamed to be working in programming industries.
-          <br />
-          Passionate about Web Developer, Data Analyst, Computer Vision & Artificial Intelligence.
+          <br className="hidden sm:block" />{" "}
+          <span className="text-paper">
+            Passionate about Web Developer, Data Analyst, Computer Vision &amp; Artificial Intelligence.
+          </span>
         </p>
-        <div className="reveal-right reveal-icons mt-4">
-          <SocialIcons variant="hero" />
+
+        <div data-anim data-anim-hero className="mt-8 md:mt-10">
+          <SocialIcons />
         </div>
       </div>
 
-      {/* Hero Right - Image */}
-      <div className="reveal-image hero-image-container order-1 lg:order-2 justify-self-center lg:justify-self-auto lg:ml-4 mt-20 lg:mt-0 mb-12 lg:mb-8 w-[240px] h-[240px] sm:w-[270px] sm:h-[270px] lg:w-[360px] lg:h-[360px] rounded-full border-[10px] border-white bg-primary flex justify-center items-center">
-        <Image
-          src="/hero1.jpg"
-          alt="Argya Sabih"
-          width={360}
-          height={360}
-          className="hero-image-fade rounded-full max-w-[190px] sm:max-w-[220px] lg:max-w-[360px]"
-          priority
-        />
+      <div className="lg:col-span-5">
+        <div data-depth="1" data-scroll-depth="-14">
+          <HeroPortrait />
+        </div>
       </div>
     </section>
   );

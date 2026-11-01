@@ -1,21 +1,19 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Portfolios from "@/components/Portfolios";
 import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import SectionJoint from "@/components/SectionJoint";
 
 export default function Home() {
   return (
-    <>
-      <header className="min-h-screen">
-        <div className="w-[90%] xl:max-w-[1200px] mx-auto">
-          <Hero />
-        </div>
-      </header>
+    <main id="main">
+      <Hero />
+      <SectionJoint variant="disc" spin={34} drift={44} />
       <Portfolios />
+      <SectionJoint variant="orbit" spin={18} drift={36} />
       <Skills />
+      <SectionJoint variant="quadrant" spin={42} drift={30} />
       <Contact />
-    </>
+    </main>
   );
 }

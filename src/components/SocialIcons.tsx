@@ -1,7 +1,3 @@
-interface SocialIconsProps {
-  variant?: "hero" | "footer";
-}
-
 const socialLinks = [
   {
     href: "https://www.instagram.com/argy_sabih/",
@@ -13,13 +9,13 @@ const socialLinks = [
     href: "https://www.linkedin.com/in/argyasabih",
     label: "LinkedIn",
     path: "M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z",
-    viewBox: "0 0 24 24"
+    viewBox: "0 2 24 24"
   },
   {
     href: "mailto:argy.sabih@gmail.com",
     label: "Email",
-    path: "m0 0h8v6h-8zm.75 .75v4.5h6.5v-4.5zM0 0l4 3 4-3v1l-4 3-4-3z",
-    viewBox: "0 0 8 4"
+    path: "M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z",
+    viewBox: "0 0 24 24"
   },
   {
     href: "https://github.com/ArgyaSabih",
@@ -29,35 +25,34 @@ const socialLinks = [
   }
 ];
 
-export default function SocialIcons({variant = "hero"}: SocialIconsProps) {
-  const isHero = variant === "hero";
-
+export default function SocialIcons() {
   return (
-    <div className={`flex gap-4 ${isHero ? "justify-center lg:justify-start" : "justify-center mb-4"}`}>
+    <ul className="-mx-3 flex flex-wrap items-center gap-y-1">
       {socialLinks.map((social) => (
-        <a
-          key={social.label}
-          href={social.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={social.label}
-          className="group"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox={social.viewBox}
-            className={`transition-all duration-300 ${
-              isHero
-                ? "fill-white group-hover:fill-accent group-hover:scale-110"
-                : "fill-[#3e3f40] group-hover:fill-black"
-            }`}
+        <li key={social.label}>
+          <a
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex h-11 min-w-[2.75rem] items-center justify-center gap-2.5 border border-transparent px-3 text-paper-dim transition-colors duration-300 hover:text-accent sm:justify-start"
           >
-            <path d={social.path} />
-          </svg>
-        </a>
+            <svg
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox={social.viewBox}
+              className="shrink-0 fill-current transition-transform duration-500 ease-expo mb-[0.3rem] group-hover:-translate-y-0.5"
+            >
+              <path d={social.path} />
+            </svg>
+            <span className="hidden font-mono text-[0.75rem] uppercase tracking-[0.14em] sm:inline">
+              {social.label}
+            </span>
+            <span className="sr-only sm:hidden">{social.label}</span>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
