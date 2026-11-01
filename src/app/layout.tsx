@@ -1,4 +1,3 @@
-// @ts-expect-error
 import "./globals.css";
 import type {Metadata} from "next";
 import {Plus_Jakarta_Sans, Geist_Mono, Instrument_Serif} from "next/font/google";
