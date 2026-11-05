@@ -9,9 +9,9 @@ import {placeCards} from "./rotatingCards";
 
 const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 const EASE = "power3.out";
-const HIDDEN_UP = {autoAlpha: 0, y: 20};
-const HIDDEN_ROW = {autoAlpha: 0, x: -16};
-const SHOWN = {autoAlpha: 1, y: 0, x: 0};
+const HIDDEN_UP = {opacity: 0, y: 20};
+const HIDDEN_ROW = {opacity: 0, x: -16};
+const SHOWN = {opacity: 1, y: 0, x: 0};
 const REDUCED = "(prefers-reduced-motion: reduce)";
 const FULL = "(prefers-reduced-motion: no-preference)";
 const STAGE = "(min-width: 1024px) and (min-height: 680px)";
@@ -31,7 +31,7 @@ function settle() {
   gsap.set("[data-anim-rule], [data-anim-hero-rule]", {scaleX: 1});
   gsap.set("[data-hero-lead], [data-hero-name]", {autoAlpha: 1});
   gsap.set("[data-hero-name] .char, [data-hero-lead] .char", {autoAlpha: 1, yPercent: 0});
-  gsap.set(".caret", {x: 0, autoAlpha: 1}); // standing at the end of the line
+  gsap.set(".caret", {x: 0, autoAlpha: 1});
 }
 
 function heroPointer(): () => void {
@@ -380,6 +380,7 @@ export default function Motion() {
           const stage = Boolean(mmCtx.conditions.stage);
           const wide = window.matchMedia("(min-width: 768px)").matches;
           const jobs: Array<() => void> = [];
+          const cleanups: Array<() => void> = [];
           const headerH = () => document.querySelector("header")?.getBoundingClientRect().height ?? 84;
           gsap.utils.toArray<HTMLElement>("[data-scene]").forEach((scene) => {
             const topRight = scene.dataset.corner !== "bl";
@@ -389,6 +390,7 @@ export default function Motion() {
             const frame = scene.querySelector<HTMLElement>("[data-scene-frame]");
             const items = scene.querySelectorAll<HTMLElement>("[data-scene-item]");
             const lt = scene.querySelector<HTMLElement>("[data-lt]");
+            const alt = scene.querySelector<HTMLElement>("[data-scene-alt]");
             if (!stageEl || !shot || !info) return;
 
             jobs.push(() => {
@@ -436,12 +438,26 @@ export default function Motion() {
                 );
                 tl.fromTo(
                   items,
-                  {autoAlpha: 0, y: 36},
-                  {autoAlpha: 1, y: 0, duration: 0.22, stagger: 0.06, ease: "power2.out"},
+                  {opacity: 0, y: 36},
+                  {opacity: 1, y: 0, duration: 0.22, stagger: 0.06, ease: "power2.out"},
                   0.38
                 );
                 if (frame) tl.fromTo(frame, {autoAlpha: 0}, {autoAlpha: 1, duration: 0.1}, 0.6);
+                if (alt)
+                  tl.fromTo(alt, {opacity: 0}, {opacity: 1, duration: 0.3, ease: "power1.inOut"}, 0.64);
                 tl.fromTo(info, {y: 28}, {y: -14, duration: 1}, 0);
+
+                const revealOnFocus = (event: FocusEvent) => {
+                  const item = (event.target as HTMLElement).closest<HTMLElement>("[data-scene-item]");
+                  const st = tl.scrollTrigger;
+                  if (!item || !st) return;
+                  requestAnimationFrame(() => {
+                    if (Number(getComputedStyle(item).opacity) > 0.98) return;
+                    window.scrollTo({top: st.start + (st.end - st.start) * 0.9, behavior: "instant"});
+                  });
+                };
+                info.addEventListener("focusin", revealOnFocus);
+                cleanups.push(() => info.removeEventListener("focusin", revealOnFocus));
               } else {
                 const tl = gsap.timeline({
                   defaults: {ease: "none"},
@@ -463,10 +479,33 @@ export default function Motion() {
                 if (lt) lowerThirdIn(tl, lt, 0.45, 0.6);
                 tl.fromTo(
                   items,
-                  {autoAlpha: 0, y: 28},
-                  {autoAlpha: 1, y: 0, duration: 0.3, stagger: 0.08, ease: "power2.out"},
+                  {opacity: 0, y: 28},
+                  {opacity: 1, y: 0, duration: 0.3, stagger: 0.08, ease: "power2.out"},
                   0.35
                 );
+                if (alt) {
+                  gsap.fromTo(
+                    alt,
+                    {opacity: 0},
+                    {
+                      opacity: 1,
+                      ease: "none",
+                      scrollTrigger: {trigger: scene, start: "top 30%", end: "bottom 70%", scrub: 0.6}
+                    }
+                  );
+                }
+
+                const revealOnFocus = (event: FocusEvent) => {
+                  const target = event.target as HTMLElement;
+                  const item = target.closest<HTMLElement>("[data-scene-item]");
+                  if (!item) return;
+                  requestAnimationFrame(() => {
+                    if (Number(getComputedStyle(item).opacity) > 0.98) return;
+                    target.scrollIntoView({block: "center", behavior: "instant"});
+                  });
+                };
+                info.addEventListener("focusin", revealOnFocus);
+                cleanups.push(() => info.removeEventListener("focusin", revealOnFocus));
               }
             });
           });
@@ -615,7 +654,10 @@ export default function Motion() {
             timer = window.setTimeout(() => run(i + 1), 16);
           };
           run(0);
-          return () => window.clearTimeout(timer);
+          return () => {
+            window.clearTimeout(timer);
+            cleanups.forEach((fn) => fn());
+          };
         });
 
         return () => mm.revert();

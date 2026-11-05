@@ -274,6 +274,20 @@ html:not(.no-js) [data-splash] .char,
   [data-scene] [data-lt] {
     opacity: 0;
   }
+
+  [data-group="cv"] .scene-stage {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    max-height: calc(100svh - var(--masthead) - 4.5rem);
+  }
+}
+
+@media not all and (min-width: 1024px) and (min-height: 680px) {
+  [data-group="cv"] .scene-shot,
+  [data-group="cv"] .scene-frame {
+    aspect-ratio: 16 / 9;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) and (min-height: 680px) {
