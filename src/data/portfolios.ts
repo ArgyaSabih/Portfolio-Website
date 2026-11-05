@@ -1,7 +1,17 @@
+export type PortfolioGroup = "cv" | "web";
+
+export const groups: {id: PortfolioGroup; title: string}[] = [
+  {id: "cv", title: "AI & Computer Vision"},
+  {id: "web", title: "Web Development"}
+];
+
 export type Portfolio = {
   title: string;
+  group: PortfolioGroup;
   image: string;
+  imageAlt?: string;
   link: string;
+  linkKind?: "site" | "repo";
   tags: string[];
   description: string;
   location?: string;
@@ -9,9 +19,31 @@ export type Portfolio = {
 
 export const portfolios: Portfolio[] = [
   {
+    title: "Exercise Form Analyzer",
+    group: "cv",
+    image: "/portfolios/cv-exercise-pushup.webp",
+    imageAlt: "/portfolios/cv-exercise-squat.webp",
+    link: "https://github.com/ArgyaSabih/exercise_form_analyzer",
+    linkKind: "repo",
+    tags: ["Python", "OpenCV", "YOLOv8-Pose"],
+    description:
+      "A computer vision system that reads a person's video or webcam feed while they squat or do push-ups, measures joint angles to judge the quality of every repetition, counts the repetitions, and reports what went wrong in each rep."
+  },
+  {
+    title: "Real Time Object Detection System",
+    group: "cv",
+    image: "/portfolios/cv-detect-person.webp",
+    imageAlt: "/portfolios/cv-detect-phone.webp",
+    link: "https://github.com/ArgyaSabih/real-time-object-detection-system",
+    linkKind: "repo",
+    tags: ["Python", "OpenCV", "YOLO"],
+    description:
+      "A standalone desktop application that acquires the video stream from a webcam and runs YOLO model inference (COCO dataset, 80 classes) in real time, complete with bounding boxes, class labels, confidence scores, and an FPS diagnostics panel."
+  },
+  {
     title: "Cerita Neira",
+    group: "web",
     image: "/portfolios/portfolio-1.webp",
-    location: "Banda Neira, Maluku",
     link: "https://ceritaneira.com",
     tags: ["NextJS", "TailwindCSS", "GSAP"],
     description:
@@ -19,8 +51,8 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: "Desa Rajawali Official Website",
+    group: "web",
     image: "/portfolios/portfolio-2.webp",
-    location: "Banda Neira, Maluku",
     link: "https://www.desarajawali.id/",
     tags: ["NextJS", "TailwindCSS", "Sanity CMS", "Neon"],
     description:
@@ -28,6 +60,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: "Gelanggang Expo 2024",
+    group: "web",
     image: "/portfolios/portfolio-3.webp",
     link: "https://ukm.ugm.ac.id/2024/gelex/",
     tags: ["NextJS", "TailwindCSS", "Firebase"],
@@ -36,6 +69,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: "Porsenigama 2024",
+    group: "web",
     image: "/portfolios/portfolio-4.webp",
     link: "https://porsenigama24.vercel.app/",
     tags: ["NextJS", "TailwindCSS", "GSAP"],
@@ -44,6 +78,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: "PIONIR Gadjah Mada 2025",
+    group: "web",
     image: "/portfolios/portfolio-5.webp",
     link: "https://pionir.ugm.ac.id/2025/",
     tags: ["NextJS", "TailwindCSS", "GSAP"],
@@ -52,6 +87,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: "Porsenigama 2025",
+    group: "web",
     image: "/portfolios/portfolio-6.webp",
     link: "https://porsenigama25.vercel.app/2025/porsenigama/",
     tags: ["NextJS", "TailwindCSS", "GSAP"],

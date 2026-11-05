@@ -22,7 +22,7 @@ export default function Splash() {
 
       <div className="absolute inset-0 flex items-center justify-center">
         <ul className="relative h-[calc(var(--sc-w)*1.25)] w-[var(--sc-w)] [--sc-w:clamp(8.5rem,18vw,15rem)]">
-          {portfolios.map((p) => (
+          {portfolios.slice(2, 6).map((p) => (
             <li
               key={p.image}
               data-splash-card
