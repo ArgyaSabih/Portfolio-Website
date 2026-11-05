@@ -5,7 +5,6 @@ import Image from "next/image";
 
 export default function ShotImage({
   src,
-  extra,
   sizes,
   parallax = 6
 }: {
@@ -42,11 +41,6 @@ export default function ShotImage({
       className="absolute inset-0"
     >
       {near ? image : <noscript>{image}</noscript>}
-      {extra ? (
-        <div data-scene-alt className="absolute inset-0 opacity-0">
-          {near ? <Image src={extra} alt="" fill sizes={sizes} className="object-cover object-left-top" /> : null}
-        </div>
-      ) : null}
     </div>
   );
 }

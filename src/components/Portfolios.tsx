@@ -21,13 +21,15 @@ export default function Portfolios() {
       aria-labelledby="portfolios-title"
       className="mx-auto max-w-shell px-[var(--gutter)] py-24 md:py-32"
     >
-      <div className="grid gap-x-12 gap-y-10 lg:grid-cols-12 lg:items-end">
-        <div className="lg:col-span-5">
-          <h2 id="portfolios-title" data-anim data-anim-up className="font-display text-title text-paper">
-            Featured Portfolios
-          </h2>
-          <div data-anim data-anim-rule className="mt-6 h-px w-full bg-rule" />
-        </div>
+      <div className="grid gap-x-12 gap-y-10 lg:grid-cols-12 lg:items-start">
+        <h2
+          id="portfolios-title"
+          data-anim
+          data-anim-up
+          className="font-display text-title text-paper lg:col-span-5 lg:-mt-1"
+        >
+          Featured Portfolios
+        </h2>
 
         <div data-anim data-anim-up className="lg:col-span-7">
           <p
@@ -40,18 +42,18 @@ export default function Portfolios() {
         </div>
       </div>
 
-      {chapters.map((chapter) => (
-        <div key={chapter.id} className="mt-16 md:mt-24">
-          <div className="flex items-end gap-6 pb-10 md:gap-8 md:pb-14">
-            <h3
-              data-anim
-              data-anim-up
-              className="font-display text-[2rem] leading-none tracking-[-0.03em] text-paper md:text-[2.75rem]"
-            >
-              {chapter.title}
-            </h3>
-            <span aria-hidden="true" data-anim data-anim-rule className="mb-[0.3em] block h-px flex-1 bg-rule" />
-          </div>
+      {chapters.map((chapter, ci) => (
+        <div
+          key={chapter.id}
+          className={"border-t border-rule pt-8 md:pt-10 " + (ci === 0 ? "mt-14 md:mt-20" : "mt-10 md:mt-14")}
+        >
+          <h3
+            data-anim
+            data-anim-up
+            className="pb-10 font-display text-[1.875rem] leading-none tracking-[-0.025em] text-paper md:pb-14 md:text-[2.5rem]"
+          >
+            {chapter.title}
+          </h3>
 
           <div>
             {chapter.projects.map((portfolio, i) => {
@@ -135,7 +137,6 @@ export default function Portfolios() {
                       <div className="absolute inset-0 overflow-hidden bg-ink-raised">
                         <ShotImage
                           src={portfolio.image}
-                          extra={portfolio.imageAlt}
                           sizes="(min-width: 1024px) 78rem, 100vw"
                           parallax={portfolio.group === "cv" ? 0 : 6}
                         />

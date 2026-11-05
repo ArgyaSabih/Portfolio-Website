@@ -32,8 +32,8 @@ export const portfolios: Portfolio[] = [
   {
     title: "Real Time Object Detection System",
     group: "cv",
-    image: "/portfolios/cv-detect-person.webp",
-    imageAlt: "/portfolios/cv-detect-phone.webp",
+    image: "/portfolios/cv-detect-phone.webp",
+    imageAlt: "/portfolios/cv-detect-person.webp",
     link: "https://github.com/ArgyaSabih/real-time-object-detection-system",
     linkKind: "repo",
     tags: ["Python", "OpenCV", "YOLO"],
