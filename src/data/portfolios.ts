@@ -10,7 +10,7 @@ export type Portfolio = {
 export const portfolios: Portfolio[] = [
   {
     title: "Cerita Neira",
-    image: "/portfolios/portfolio-1.png",
+    image: "/portfolios/portfolio-1.webp",
     location: "Banda Neira, Maluku",
     link: "https://ceritaneira.com",
     tags: ["NextJS", "TailwindCSS", "GSAP"],
@@ -19,7 +19,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: "Desa Rajawali Official Website",
-    image: "/portfolios/portfolio-2.png",
+    image: "/portfolios/portfolio-2.webp",
     location: "Banda Neira, Maluku",
     link: "https://www.desarajawali.id/",
     tags: ["NextJS", "TailwindCSS", "Sanity CMS", "Neon"],
@@ -28,7 +28,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: "Gelanggang Expo 2024",
-    image: "/portfolios/portfolio-3.png",
+    image: "/portfolios/portfolio-3.webp",
     link: "https://ukm.ugm.ac.id/2024/gelex/",
     tags: ["NextJS", "TailwindCSS", "Firebase"],
     description:
@@ -36,7 +36,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: "Porsenigama 2024",
-    image: "/portfolios/portfolio-4.png",
+    image: "/portfolios/portfolio-4.webp",
     link: "https://porsenigama24.vercel.app/",
     tags: ["NextJS", "TailwindCSS", "GSAP"],
     description:
@@ -44,7 +44,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: "PIONIR Gadjah Mada 2025",
-    image: "/portfolios/portfolio-5.png",
+    image: "/portfolios/portfolio-5.webp",
     link: "https://pionir.ugm.ac.id/2025/",
     tags: ["NextJS", "TailwindCSS", "GSAP"],
     description:
@@ -52,7 +52,7 @@ export const portfolios: Portfolio[] = [
   },
   {
     title: "Porsenigama 2025",
-    image: "/portfolios/portfolio-6.png",
+    image: "/portfolios/portfolio-6.webp",
     link: "https://porsenigama25.vercel.app/2025/porsenigama/",
     tags: ["NextJS", "TailwindCSS", "GSAP"],
     description:

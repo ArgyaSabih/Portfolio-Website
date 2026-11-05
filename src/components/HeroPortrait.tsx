@@ -220,7 +220,7 @@ export default function HeroPortrait() {
         >
           <div data-parallax="7" style={{"--depth": 7} as CSSProperties} className="absolute inset-0">
             <Image
-              src="/hero1.jpg"
+              src="/hero.webp"
               alt="Argya Sabih"
               fill
               sizes="(min-width: 1024px) 26rem, (min-width: 640px) 20rem, 72vw"
