@@ -1,8 +1,13 @@
 import Image from "next/image";
 
 const prints = [
-  {src: "/hero.jpg", rest: -8, place: "left-0 top-8", tape: "-rotate-[5deg] left-1/2 -translate-x-1/2"},
-  {src: "/hero1.jpg", rest: 6, place: "left-[44%] top-0", tape: "rotate-[4deg] left-1/2 -translate-x-1/2"}
+  {src: "/polaroid2.webp", rest: -8, place: "left-0 top-8", tape: "-rotate-[5deg] left-1/2 -translate-x-1/2"},
+  {
+    src: "/polaroid1.webp",
+    rest: 6,
+    place: "left-[44%] top-0",
+    tape: "rotate-[4deg] left-1/2 -translate-x-1/2"
+  }
 ];
 
 export default function Polaroids() {
