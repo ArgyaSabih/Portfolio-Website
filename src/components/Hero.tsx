@@ -3,7 +3,7 @@ import SplitText from "./SplitText";
 import HeroPortrait from "./HeroPortrait";
 import TextWheel from "./TextWheel";
 
-const interests = ["Web Developer", "Data Analyst", "Computer Vision", "Artificial Intelligence"];
+const interests = ["Full-Stack Web Developer", "AI Engineer", "Computer Vision Engineer", "Data Analyst"];
 
 export default function Hero() {
   return (
@@ -66,7 +66,7 @@ export default function Hero() {
           <div
             data-anim
             data-anim-hero
-            className="min-w-0 flex-1 border-l-2 border-accent pb-[0.35rem] pl-4 font-display text-[1.375rem] tracking-[-0.01em] text-paper md:pb-2 md:pl-5 md:text-[1.75rem] lg:mt-7 lg:flex lg:flex-none lg:items-center lg:gap-4 lg:border-l-0 lg:p-0 lg:text-[1.875rem]"
+            className="min-w-0 flex-1 border-l-2 border-accent pb-[0.35rem] pl-4 font-display text-[clamp(1rem,5vw,1.375rem)] tracking-[-0.01em] text-paper md:pb-2 md:pl-5 md:text-[1.75rem] lg:mt-7 lg:flex lg:flex-none lg:items-center lg:gap-4 lg:border-l-0 lg:p-0 lg:text-[1.875rem]"
           >
             <span aria-hidden="true" className="hidden h-px w-10 shrink-0 bg-accent lg:block" />
             <TextWheel words={interests} />
@@ -75,12 +75,9 @@ export default function Hero() {
 
         <div data-anim data-anim-hero-rule className="mt-6 h-px w-full max-w-md bg-rule md:mt-7" />
 
-        <p data-anim data-anim-hero className="mt-7 max-w-measure text-lede text-paper-dim md:mt-8">
-          A student at DTETI FT UGM who dreamed to be working in programming industries.
-          <br className="hidden sm:block" />{" "}
-          <span className="text-paper">
-            Passionate about Web Developer, Data Analyst, Computer Vision &amp; Artificial Intelligence.
-          </span>
+        <p data-anim data-anim-hero className="mt-7 max-w-measure text-lede text-paper md:mt-8">
+          Information Technology undergraduate at Universitas Gadjah Mada with 3+ years of web development and
+          hands-on computer vision and AI projects.
         </p>
 
         <div data-anim data-anim-hero className="mt-8 md:mt-10">

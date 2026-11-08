@@ -2,36 +2,90 @@ import SkillCarousel from "./SkillCarousel";
 
 const educations = [
   {
-    title: "SMA Negeri 1 Semarang - High School",
-    field: "Matematika & IPA",
+    title: "SMA Negeri 1 Semarang",
+    field: "Mathematics & Natural Sciences",
+    detail: "",
     years: "2020 - 2023"
   },
   {
-    title: "Gadjah Mada University - College",
-    field: "Engineering - Information Technology",
+    title: "Universitas Gadjah Mada - S1 Information Technology",
+    field: "Faculty of Engineering, DTETI. Expected graduation 2027.",
+    detail:
+      "Interested fields: Programming, Web Development, Computer Vision, Artificial Intelligence, Data Analytics. Relevant coursework: Computer Vision, Computer Security.",
     years: "2023 - Present"
   }
 ];
 
-const skillsLeft = [
-  {name: "HTML", stars: 5},
-  {name: "CSS", stars: 5},
-  {name: "Javascript", stars: 5},
-  {name: "TailwindCSS", stars: 5},
-  {name: "Github", stars: 5}
+const skillGroups = [
+  {label: "Expert", items: ["HTML", "CSS", "JavaScript"]},
+  {label: "Advanced", items: ["Python", "React.js", "Next.js", "TailwindCSS", "MongoDB", "Git/GitHub"]},
+  {
+    label: "Web Development",
+    items: [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "MySQL",
+      "PostgreSQL",
+      "Firebase",
+      "Prisma",
+      "Strapi",
+      "Sanity CMS",
+      "Auth.js",
+      "JWT",
+      "Google OAuth",
+      "GSAP",
+      "Docker",
+      "Figma"
+    ]
+  },
+  {
+    label: "AI, vision & data",
+    items: [
+      "OpenCV",
+      "YOLO (YOLOv8-Pose, YOLO26n)",
+      "ONNX",
+      "OpenVINO",
+      "scikit-learn",
+      "pandas",
+      "NumPy",
+      "Isolation Forest",
+      "FastAPI",
+      "exploratory data analysis",
+      "data cleaning"
+    ]
+  },
+  {
+    label: "Tools & soft skills",
+    items: [
+      "Microsoft Word, Excel, PowerPoint",
+      "team leadership",
+      "communication",
+      "public speaking",
+      "time management"
+    ]
+  }
 ];
 
-const skillsRight = [
-  {name: "ReactJS", stars: 5},
-  {name: "NextJS", stars: 5},
-  {name: "ExpressJS", stars: 5},
-  {name: "PostgreSQL", stars: 4},
-  {name: "MongoDB", stars: 4}
+const stack = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Python",
+  "React.js",
+  "Next.js",
+  "TailwindCSS",
+  "Node.js",
+  "Express.js",
+  "MongoDB",
+  "PostgreSQL",
+  "Git/GitHub",
+  "OpenCV",
+  "YOLO",
+  "scikit-learn",
+  "FastAPI",
+  "Docker"
 ];
-
-const projectStack = ["GSAP", "Sanity CMS", "Neon", "Firebase"];
-
-const stack = Array.from(new Set([...skillsLeft, ...skillsRight].map((s) => s.name).concat(projectStack)));
 
 export default function Skills() {
   return (
@@ -84,6 +138,11 @@ export default function Skills() {
                     {edu.title}
                   </h4>
                   <p className="mt-2 text-[0.9375rem] text-paper-dim">{edu.field}</p>
+                  {edu.detail ? (
+                    <p className="mt-2 max-w-measure text-[0.875rem] leading-[1.7] text-paper-faint">
+                      {edu.detail}
+                    </p>
+                  ) : null}
                 </li>
               ))}
             </ol>
@@ -91,7 +150,8 @@ export default function Skills() {
 
           <div className="lg:col-span-6 lg:pt-10">
             <p data-anim data-anim-up className="max-w-measure text-lede text-paper-dim">
-              For about three years and a half, these are summary of my skills. Field of web developer.
+              A summary of my skills from 3+ years of web development and hands-on computer vision and AI
+              projects.
             </p>
           </div>
         </div>
@@ -105,6 +165,17 @@ export default function Skills() {
           </h3>
           <div role="region" aria-labelledby="tech-stack">
             <SkillCarousel items={stack} />
+
+            <dl className="mt-12 divide-y divide-rule border-y border-rule md:mt-16">
+              {skillGroups.map((group) => (
+                <div key={group.label} className="grid gap-2 py-5 sm:grid-cols-[11rem_1fr] sm:gap-6">
+                  <dt className="font-mono text-[0.6875rem] uppercase tracking-[0.2em] text-paper-faint">
+                    {group.label}
+                  </dt>
+                  <dd className="text-[0.9375rem] leading-[1.75] text-paper-dim">{group.items.join(", ")}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </div>
