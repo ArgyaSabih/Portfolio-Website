@@ -1,50 +1,50 @@
 const roles = [
   {
     dates: "01/2026 – 02/2026",
-    title: "Intern, Digital Connectivity Service",
-    org: "PT Telkom Indonesia",
+    title: "Intern, Telkom Indonesia",
+    org: "Digital Connectivity Service | PT Telkom Indonesia",
     context: "Datacomm & NextGen Product, Jakarta",
     note: "Built the NCIX Reporting Dashboard in 1 week with Next.js 15, React Leaflet and TailwindCSS: an interactive map with 3 layers (heatmap, bubbles, ASN trace) over 1,622 membership records from 26 data-center locations."
   },
   {
     dates: "07/2025 – 11/2025",
     title: "Sub-Coordinator, Web Development",
-    org: "Porsenigama 2025 · Forkom UGM",
+    org: "Porsenigama 2025 | Forkom UGM",
     context: "UGM's annual sports and arts week",
     note: "Led an 8-member web team through a 2.5-month build; the site reached 124,947 views."
   },
   {
     dates: "02/2025 – 08/2025",
     title: "Front-End Web Developer",
-    org: "PIONIR Gadjah Mada 2025 · Direktorat Kemahasiswaan UGM",
+    org: "PIONIR Gadjah Mada 2025 | Direktorat Kemahasiswaan UGM",
     context: "Official orientation program for new UGM students",
     note: "Built front-end features in a 7-member team over 3 months; the pionir.ugm.ac.id site reached 689,692 views, serving 10,000+ new students."
   },
   {
     dates: "11/2024 – 06/2025",
     title: "Sub-Coordinator, Back-End Web Development",
-    org: "Technocorner 2025 · DTETI UGM",
+    org: "Technocorner 2025 | DTETI UGM",
     context: "Annual technology event of the Department of Electrical and Information Engineering",
     note: "Led a 3-person back-end team and built the competition registration API (Node.js, Express, MongoDB): Google OAuth login, JWT authentication, team registration and verification, payment-proof upload to Google Drive, and Google Sheets sync for the committee."
   },
   {
     dates: "09/2024 – 11/2024",
     title: "Front-End Web Developer",
-    org: "Porsenigama 2024 · Forkom UGM",
+    org: "Porsenigama 2024 | Forkom UGM",
     context: "",
     note: "Built the event site with Next.js, TailwindCSS and GSAP animations; it reached 195,474 views."
   },
   {
     dates: "06/2024 – 08/2024",
     title: "Front-End Web Developer",
-    org: "Gelanggang Expo 2024 · Forkom UGM",
+    org: "Gelanggang Expo 2024 | Forkom UGM",
     context: "UGM's annual student activity expo",
     note: "Built the expo site (Next.js, TailwindCSS, Firebase) presenting 55 student units under 4 Sekber, with an event timeline, FAQ and a mini game that matches new students to units."
   },
   {
     dates: "11/2023 – 06/2024",
     title: "Back-End Web Developer",
-    org: "Technocorner 2024 · DTETI UGM",
+    org: "Technocorner 2024 | DTETI UGM",
     context: "Departemen Teknik Elektro dan Teknologi Informasi",
     note: "Developed back-end features for the Technocorner 2024 event website as IT staff."
   },
