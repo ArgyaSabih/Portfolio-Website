@@ -5,11 +5,12 @@ import LazyBeam from "./LazyBeam";
 
 const links = [
   {href: "#portfolios", label: "Portfolio"},
+  {href: "#experience", label: "Experience"},
   {href: "#skills", label: "Skills"},
   {href: "#contact", label: "Contact"}
 ];
 
-const RESUME_URL = "https://argyasabih.github.io/Portfolio-Website/resume.pdf";
+const RESUME_URL = "/resume.pdf";
 
 function Arrow({external = false, size = 11}: {external?: boolean; size?: number}) {
   return (

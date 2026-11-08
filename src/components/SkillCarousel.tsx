@@ -5,11 +5,9 @@ import gsap from "gsap";
 import LazyBeam from "./LazyBeam";
 import {placeCards} from "./rotatingCards";
 
-/* One roll every 1.5s, start to start (owner's request). */
-const STEP_FOR = 0.65; // seconds to roll to the next one
-const STEP_EVERY = 1.5 - STEP_FOR; // seconds a card rests at the centre
+const STEP_FOR = 0.65;
+const STEP_EVERY = 1.5 - STEP_FOR;
 
-/** Same arc as `placeCards`, as static CSS, so the fan is laid out before (or without) JS. */
 function initialStyle(index: number, count: number, reach: number): CSSProperties {
   const raw = index;
   const slot = ((((raw + count / 2) % count) + count) % count) - count / 2;
@@ -112,21 +110,12 @@ export default function SkillCarousel({items}: {items: string[]}) {
     };
   }, [reduced, held, offscreen, hidden, n]);
 
-  if (reduced) {
-    return (
-      <ul className="flex flex-wrap gap-3">
-        {items.map((name) => (
-          <li key={name} className="border border-rule px-5 py-3 font-display text-xl text-paper md:text-2xl">
-            {name}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  if (reduced) return null;
 
   return (
     <div
       ref={stageRef}
+      aria-hidden="true"
       onPointerEnter={() => setHeld(true)}
       onPointerLeave={() => setHeld(false)}
       className="relative h-[calc(var(--card-h)+4.5rem)] overflow-hidden [--card-h:11.5rem] [--card-step:calc(var(--card-w)*0.9)] [--card-w:9rem] md:[--card-h:15rem] md:[--card-w:12rem]"

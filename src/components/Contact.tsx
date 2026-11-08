@@ -16,7 +16,7 @@ const contactItems = [
       </svg>
     ),
     title: "Address",
-    detail: "Semarang, Central Java",
+    detail: "Yogyakarta, Indonesia",
     href: null,
     primary: false
   },
