@@ -3,13 +3,20 @@ import SplitText from "./SplitText";
 import HeroPortrait from "./HeroPortrait";
 import TextWheel from "./TextWheel";
 
+const stats = [
+  {value: 3, decimals: 0, suffix: "+", unit: "", label: "Years building for the web"},
+  {value: 6, decimals: 0, suffix: "", unit: "", label: "Production websites shipped with Next.js"},
+  {value: 689692, decimals: 0, suffix: "", unit: "", label: "Views on the PIONIR 2025 orientation site"},
+  {value: 16.7, decimals: 1, suffix: "", unit: "FPS", label: "Real-time YOLO detection, CPU only"}
+];
+
 const interests = ["Full-Stack Web Developer", "AI Engineer", "Computer Vision Engineer", "Data Analyst"];
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative mx-auto grid min-h-[calc(100dvh-var(--masthead))] max-w-shell grid-cols-1 content-center gap-y-12 px-[var(--gutter)] pb-14 pt-6 md:pb-20 lg:grid-cols-12 lg:items-center lg:gap-x-10"
+      className="relative mx-auto grid min-h-[calc(100dvh-var(--masthead))] max-w-shell grid-cols-1 content-center gap-y-12 px-[var(--gutter)] pb-14 pt-6 md:pb-20 lg:grid-cols-12 lg:items-center lg:gap-x-10 lg:gap-y-0"
     >
       <div
         aria-hidden="true"
@@ -32,7 +39,7 @@ export default function Hero() {
         Argya Sabih — Portfolio
       </span>
 
-      <div className="lg:col-span-7 lg:pr-6">
+      <div className="lg:col-span-7 lg:self-end lg:pr-6">
         <div className="flex items-end gap-x-5 lg:block">
           <h1 aria-label="My name is Argya Sabih" className="text-paper">
             <span
@@ -85,11 +92,40 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="lg:col-span-5">
+      <div className="lg:col-span-5 lg:col-start-8 lg:row-span-2 lg:row-start-1 lg:self-center">
         <div data-depth="1" data-scroll-depth="-14">
           <HeroPortrait />
         </div>
       </div>
+
+      <dl
+        data-anim
+        data-anim-hero
+        data-stats
+        className="grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4 sm:gap-x-5 lg:col-span-7 lg:col-start-1 lg:row-start-2 lg:mt-10 lg:self-start lg:pr-6"
+      >
+        {stats.map((stat) => (
+          <div key={stat.label} className="flex flex-col-reverse justify-end border-t border-rule pt-4">
+            <dt className="mt-2 max-w-[11rem] text-[0.8125rem] leading-[1.45] text-paper-dim">{stat.label}</dt>
+            <dd className="tnum flex items-baseline gap-1.5 font-display text-[2.25rem] leading-none tracking-[-0.03em] text-paper md:text-[2.75rem]">
+              <span>
+                <span data-count={stat.value} data-decimals={stat.decimals}>
+                  {stat.value.toLocaleString("en-US", {
+                    minimumFractionDigits: stat.decimals,
+                    maximumFractionDigits: stat.decimals
+                  })}
+                </span>
+                {stat.suffix ? <span className="text-accent">{stat.suffix}</span> : null}
+              </span>
+              {stat.unit ? (
+                <span className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-accent">
+                  {stat.unit}
+                </span>
+              ) : null}
+            </dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }

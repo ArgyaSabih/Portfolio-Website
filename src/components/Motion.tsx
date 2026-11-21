@@ -23,6 +23,9 @@ const SPLASH_REVEAL = 2.78;
 const lockScroll = () => (document.documentElement.style.overflow = "hidden");
 const unlockScroll = () => (document.documentElement.style.overflow = "");
 
+const formatCount = (value: number, decimals: number) =>
+  value.toLocaleString("en-US", {minimumFractionDigits: decimals, maximumFractionDigits: decimals});
+
 function settle() {
   gsap.set("[data-splash]", {display: "none"});
   unlockScroll();
@@ -32,6 +35,9 @@ function settle() {
   gsap.set("[data-hero-lead], [data-hero-name]", {autoAlpha: 1});
   gsap.set("[data-hero-name] .char, [data-hero-lead] .char", {autoAlpha: 1, yPercent: 0});
   gsap.set(".caret", {x: 0, autoAlpha: 1});
+  gsap.utils.toArray<HTMLElement>("[data-count]").forEach((el) => {
+    el.textContent = formatCount(Number(el.dataset.count), Number(el.dataset.decimals ?? 0));
+  });
 }
 
 function heroPointer(): () => void {
@@ -337,6 +343,31 @@ export default function Motion() {
             {...SHOWN, duration: 0.8, stagger: 0.1, ease: EASE},
             typedBy + 0.15
           );
+
+        const heroItems = gsap.utils.toArray<HTMLElement>("[data-anim-hero]");
+        const statsEl = document.querySelector<HTMLElement>("[data-stats]");
+        const countAt = typedBy + 0.15 + (statsEl ? heroItems.indexOf(statsEl) : 0) * 0.1 + 0.25;
+        gsap.utils.toArray<HTMLElement>("[data-count]").forEach((el, i) => {
+          const to = Number(el.dataset.count);
+          const decimals = Number(el.dataset.decimals ?? 0);
+          const counter = {v: 0};
+          el.textContent = formatCount(0, decimals);
+          master.to(
+            counter,
+            {
+              v: to,
+              duration: 1.8,
+              ease: "power2.out",
+              onUpdate: () => {
+                el.textContent = formatCount(counter.v, decimals);
+              },
+              onComplete: () => {
+                el.textContent = formatCount(to, decimals);
+              }
+            },
+            countAt + i * 0.14
+          );
+        });
 
         stopPointer = heroPointer();
       });
