@@ -41,6 +41,24 @@ export const portfolios: Portfolio[] = [
       "Built a desktop app that runs YOLO on webcam video across 80 COCO classes, with bounding boxes, confidence scores, live threshold control and an FPS panel; models exported to ONNX and OpenVINO at 3 input sizes (320, 416, 640). Measured on CPU only (Ryzen 5 6600H): 16.7 FPS, 64.5 ms p95 inference latency (target 200 ms), 0.89 mean confidence and 329 MB memory. A 29.5-minute stability run processed 25,024 frames with 0 read failures and no memory leak."
   },
   {
+    title: "PIONIR Gadjah Mada 2025",
+    group: "web",
+    image: "/portfolios/portfolio-5.webp",
+    link: "https://pionir.ugm.ac.id/2025/",
+    tags: ["Next.js", "TailwindCSS", "GSAP"],
+    description:
+      "Front-end developer for the official orientation program for new UGM students (Direktorat Kemahasiswaan UGM), in a 7-member team over 3 months. The pionir.ugm.ac.id site reached 689,692 views, serving 10,000+ new students. Delivered MVP pages with Next.js, TailwindCSS and GSAP: “Kaleidoskop” (search each new-student group with its documentation) and two interactive games, “Kelana Nusa Talenta” and “Kemabara Loka”."
+  },
+  {
+    title: "Porsenigama 2025",
+    group: "web",
+    image: "/portfolios/portfolio-6.webp",
+    link: "https://porsenigama25.vercel.app/2025/porsenigama/",
+    tags: ["Next.js", "TailwindCSS", "GSAP", "Strapi CMS", "MySQL"],
+    description:
+      "As Sub-Coordinator of Web Development at Forkom UGM, led an 8-member web team (2 UI/UX, 4 front-end, 1 back-end, 1 sub-coordinator) through a 2.5-month build; the site reached 124,947 views. Delivered the MVP: a Porsenigama Leaderboard showing faculty scores (Strapi CMS, MySQL) and the interactive game “Gelora Juara”, built with Next.js, TailwindCSS and GSAP."
+  },
+  {
     title: "Cerita Neira",
     group: "web",
     image: "/portfolios/portfolio-1.webp",
@@ -75,24 +93,6 @@ export const portfolios: Portfolio[] = [
     tags: ["Next.js", "TailwindCSS", "GSAP"],
     description:
       "Front-end developer at Forkom UGM for Porsenigama 2024, UGM's annual sports and arts week. Built the event site with Next.js, TailwindCSS and GSAP animations; it reached 195,474 views."
-  },
-  {
-    title: "PIONIR Gadjah Mada 2025",
-    group: "web",
-    image: "/portfolios/portfolio-5.webp",
-    link: "https://pionir.ugm.ac.id/2025/",
-    tags: ["Next.js", "TailwindCSS", "GSAP"],
-    description:
-      "Front-end developer for the official orientation program for new UGM students (Direktorat Kemahasiswaan UGM), in a 7-member team over 3 months. The pionir.ugm.ac.id site reached 689,692 views, serving 10,000+ new students. Delivered MVP pages with Next.js, TailwindCSS and GSAP: “Kaleidoskop” (search each new-student group with its documentation) and two interactive games, “Kelana Nusa Talenta” and “Kemabara Loka”."
-  },
-  {
-    title: "Porsenigama 2025",
-    group: "web",
-    image: "/portfolios/portfolio-6.webp",
-    link: "https://porsenigama25.vercel.app/2025/porsenigama/",
-    tags: ["Next.js", "TailwindCSS", "GSAP", "Strapi CMS", "MySQL"],
-    description:
-      "As Sub-Coordinator of Web Development at Forkom UGM, led an 8-member web team (2 UI/UX, 4 front-end, 1 back-end, 1 sub-coordinator) through a 2.5-month build; the site reached 124,947 views. Delivered the MVP: a Porsenigama Leaderboard showing faculty scores (Strapi CMS, MySQL) and the interactive game “Gelora Juara”, built with Next.js, TailwindCSS and GSAP."
   }
 ];
 
